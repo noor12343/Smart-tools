@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Utility Hub Beta V4</title>
+<style>
+:root{
+--bg:#f4f7fb;
+--card:#fff;
+--text:#111827;
+--accent:#4f46e5;
+}
+body.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f8fafc;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;padding:15px;background:var(--card);display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 20px #0001}
+.logo{font-size:24px;font-weight:bold}
+.container{display:grid;grid-template-columns:250px 1fr}
+.sidebar{background:var(--card);min-height:100vh;padding:20px}
+.sidebar div{padding:12px;border-radius:12px;margin:10px 0;background:#00000008}
+.content{padding:20px}
+.search{padding:12px;width:100%;border-radius:15px;border:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:20px}
+.card{background:var(--card);padding:20px;border-radius:25px;box-shadow:0 8px 25px #0001;transition:.3s}
+.card:hover{transform:translateY(-4px)}
+input,textarea,button{width:100%;padding:12px;border-radius:12px;margin:6px 0}
+button{background:var(--accent);color:white;border:none;cursor:pointer}
+.toast{position:fixed;right:20px;bottom:20px;background:green;color:white;padding:15px;border-radius:12px;display:none}
+@media(max-width:800px){
+.container{grid-template-columns:1fr}
+.sidebar{min-height:auto}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">⚡ Smart Utility Hub</div>
+<button onclick="theme()">Dark / Light</button>
+</header>
+
+<div class="container">
+<div class="sidebar">
+<h3>Tools</h3>
+<div>📄 Invoice</div>
+<div>🔐 Password</div>
+<div>📝 Word Counter</div>
+<div>🎂 Age Calculator</div>
+<div>🔳 QR Generator</div>
+</div>
+
+<div class="content">
+<input class="search" placeholder="Search tools...">
+
+<div class="grid">
+
+<div class="card">
+<h2>Invoice Generator</h2>
+<input id="company" placeholder="Company">
+<input id="client" placeholder="Client">
+<input id="amount" placeholder="Amount">
+<button onclick="invoice()">Generate Invoice</button>
+<textarea id="invoiceOut"></textarea>
+</div>
+
+<div class="card">
+<h2>Password Generator</h2>
+<input id="len" value="12">
+<button onclick="pass()">Generate</button>
+<input id="passOut">
+</div>
+
+<div class="card">
+<h2>Word Counter</h2>
+<textarea id="txt"></textarea>
+<button onclick="countWords()">Count</button>
+<p id="wc"></p>
+</div>
+
+<div class="card">
+<h2>Age Calculator</h2>
+<input type="date" id="dob">
+<button onclick="age()">Calculate</button>
+<p id="ageOut"></p>
+</div>
+
+<div class="card">
+<h2>QR Generator</h2>
+<input id="qrtext">
+<button onclick="qr()">Generate</button>
+<img id="qrimg">
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="toast" id="toast">Done</div>
+
+<script>
+if(localStorage.theme=="dark")document.body.classList.add("dark");
+function theme(){
+document.body.classList.toggle("dark");
+localStorage.theme=document.body.classList.contains("dark")?"dark":"light";
+}
+function showToast(t){
+toast.innerText=t;
+toast.style.display="block";
+setTimeout(()=>toast.style.display="none",2000);
+}
+function invoice(){
+invoiceOut.value=`Company: ${company.value}\nClient: ${client.value}\nAmount: ${amount.value}`;
+showToast("Invoice Created");
+}
+function pass(){
+let s="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",p="";
+for(let i=0;i<len.value;i++)p+=s[Math.floor(Math.random()*s.length)];
+passOut.value=p;
+showToast("Password Generated");
+}
+function countWords(){
+wc.innerText="Words : "+txt.value.trim().split(/\s+/).filter(Boolean).length;
+}
+function age(){
+ageOut.innerText="Age : "+(new Date().getFullYear()-new Date(dob.value).getFullYear())+" years";
+}
+function qr(){
+qrimg.src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(qrtext.value);
+}
+</script>
+</body>
+</html>
