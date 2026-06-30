@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kohat Konnect - Product Requirements & Functional Specification (PRFS)</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 24mm 20mm 24mm 20mm;
+            @top-left { content: "Kohat Konnect — PRFS v1.0"; font-family: sans-serif; font-size: 8pt; color: #A0AEC0; }
+            @top-right { content: "CONFIDENTIAL"; font-family: sans-serif; font-size: 8pt; color: #E53E3E; font-weight: bold; }
+            @bottom-left { content: "Project Owner: GMD Group"; font-family: sans-serif; font-size: 8pt; color: #A0AEC0; }
+            @bottom-right { content: "Page " counter(page); font-family: sans-serif; font-size: 8pt; color: #718096; font-weight: bold; }
+        }
+        body { font-family: Arial, sans-serif; color: #2D3748; line-height: 1.6; font-size: 10.5pt; }
+        .cover-page { page-break-after: always; background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%); color: #FFFFFF; padding: 40mm 25mm; height: 100vh; }
+        .cover-tag { background: rgba(59, 130, 246, 0.2); border: 1px solid #3B82F6; color: #60A5FA; font-size: 9pt; font-weight: bold; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 25px; }
+        .cover-title { font-size: 36pt; font-weight: 800; margin: 0 0 15px 0; }
+        .cover-subtitle { font-size: 16pt; color: #94A3B8; margin: 0 0 40mm 0; }
+        .cover-meta { border-left: 3px solid #3B82F6; padding-left: 20px; }
+        .cover-meta-item { font-size: 10pt; margin-bottom: 8px; color: #CBD5E1; }
+        .toc-title { font-size: 20pt; color: #1E3A8A; font-weight: 700; margin-bottom: 30px; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; }
+        h1.section-heading { page-break-before: always; font-size: 18pt; color: #1E3A8A; border-bottom: 2px solid #3B82F6; padding-bottom: 8px; margin-top: 30px; }
+        h2.chapter-heading { font-size: 14pt; color: #1E3A8A; background-color: #F8FAFC; border-left: 4px solid #1E3A8A; padding: 8px 12px; margin-top: 25px; }
+        .diagram-container { background-color: #F8FAFC; border: 1px solid #E2E8F0; padding: 20px; margin: 25px 0; text-align: center; }
+        .flow-step { display: inline-block; background-color: #FFFFFF; border: 2px solid #3B82F6; color: #1E3A8A; padding: 8px 15px; border-radius: 6px; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background-color: #1E3A8A; color: white; padding: 10px; text-align: left; }
+        td { padding: 10px; border: 1px solid #E2E8F0; }
+        tr:nth-child(even) { background-color: #F8FAFC; }
+        .callout-box { background-color: #EFF6FF; border-left: 4px solid #3B82F6; padding: 15px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="cover-page">
+        <div class="cover-tag">Functional Specification Suite</div>
+        <div class="cover-title">KOHAT KONNECT</div>
+        <div class="cover-subtitle">Product Requirements & Functional Specification (PRFS)</div>
+        <div class="cover-meta">
+            <div class="cover-meta-item"><strong>Version:</strong> 1.0 (Draft)</div>
+            <div class="cover-meta-item"><strong>Project Owner:</strong> GMD Group</div>
+            <div class="cover-meta-item"><strong>Tagline:</strong> Connecting Kohat Digitally</div>
+            <div class="cover-meta-item"><strong>Slogan:</strong> One City. One Platform.</div>
+        </div>
+    </div>
+
+    <div style="page-break-after: always;">
+        <div class="toc-title">Table of Contents</div>
+        <p><strong>PART 1: STRATEGIC & BUSINESS ARCHITECTURE</strong></p>
+        <p>1. Executive Summary ................................................................ Page 3</p>
+        <p>2. Business Analysis ................................................................... Page 4</p>
+        <p>3. Product Requirements .............................................................. Page 5</p>
+        <br>
+        <p><strong>PART 2: FUNCTIONAL INTERFACES & EXECUTION</strong></p>
+        <p>4. Functional Specification ............................................................ Page 6</p>
+        <p>5. User Experience & Journeys ...................................................... Page 8</p>
+        <p>6. User Roles & Permissions ......................................................... Page 9</p>
+        <p>7. Artificial Intelligence (AI) Strategy ............................................. Page 10</p>
+        <p>8. Security & Moderation ............................................................. Page 11</p>
+        <p>9. Release & Success Metrics ......................................................... Page 12</p>
+    </div>
+
+    <h1 class="section-heading">PART 1: STRATEGIC & BUSINESS ARCHITECTURE</h1>
+    
+    <h2 class="chapter-heading">Chapter 1. Executive Summary</h2>
+    <p>Kohat Konnect is a free, community focused digital platform designed exclusively for the people of Kohat. It brings together local buying and selling, community interaction, verified local news, and essential local information into one organized platform.</p>
+    <p>Today, most local activities are scattered across multiple WhatsApp groups, Facebook pages, and informal channels. This creates confusion and lack of trust. Kohat Konnect aims to solve these problems by providing a single, structured platform.</p>
+
+    <div class="callout-box">
+        <strong>📋 Core Project Principles:</strong>
+        <ul>
+            <li><strong>User First:</strong> Every feature must solve a real problem.</li>
+            <li><strong>Keep It Simple:</strong> Simple experiences create better adoption.</li>
+            <li><strong>Local First:</strong> Every decision must prioritize the needs of Kohat.</li>
+            <li><strong>AI With Purpose:</strong> AI will improve content quality without replacing human decisions.</li>
+        </ul>
+    </div>
+
+    <h2 class="chapter-heading">Chapter 2. Business Analysis</h2>
+    <p>The people of Kohat rely on multiple fragmented platforms. Information is spread across different places, making it difficult for users to quickly find trusted, organized, and up to date local content.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Platform</th>
+                <th>Strengths</th>
+                <th>Limitations & Vulnerabilities</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>WhatsApp</strong></td>
+                <td>Fast communication, large user base.</td>
+                <td>No search tracking, posts disappear rapidly, zero categories.</td>
+            </tr>
+            <tr>
+                <td><strong>Facebook</strong></td>
+                <td>Mass audience reach, rich media.</td>
+                <td>Algorithm controlled visibility, high noise, lack local filters.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="chapter-heading">Chapter 3. Product Requirements</h2>
+    <p>The first official release of Kohat Konnect will include: Home Dashboard, Marketplace Engine, Community Feed, Local News Feed, Unified Search, and Admin Portals.</p>
+
+    <h1 class="section-heading">PART 2: FUNCTIONAL INTERFACES & EXECUTION</h1>
+    
+    <h2 class="chapter-heading">Chapter 4. Functional Specification</h2>
+    <p>Allows peer-to-peer listing instantiation with integrated localized attributes. Product states are explicitly mapped into four structural data pools:</p>
+    
+    <div class="diagram-container">
+        <div class="flow-step">Draft</div> &rarr; 
+        <div class="flow-step">Published</div> &rarr; 
+        <div class="flow-step">Sold</div> &rarr; 
+        <div class="flow-step">Expired</div>
+    </div>
+
+    <h2 class="chapter-heading">Chapter 5. User Experience & Journeys</h2>
+    <p>The global system layout utilizes a low-friction bottom sticky persistent navigation bar configured as follows:</p>
+    <p style="text-align: center; font-weight: bold; color: #2563EB;">🏠 Home &nbsp;|&nbsp; 🛒 Marketplace &nbsp;|&nbsp; 📢 Community Hub &nbsp;|&nbsp; 📰 News &nbsp;|&nbsp; 👤 Profile</p>
+
+    <h2 class="chapter-heading">Chapter 6. User Roles & Permissions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User Role</th>
+                <th>Permitted Operations</th>
+                <th>Constraints</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Registered User</strong></td>
+                <td>Create peer listings, engage in community streams.</td>
+                <td>No news publishing or admin panel access.</td>
+            </tr>
+            <tr>
+                <td><strong>Super Admin</strong></td>
+                <td>Absolute ecosystem rights, news publishing.</td>
+                <td>None. Requires rigorous multi-factor authentication.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="chapter-heading">Chapter 7. Artificial Intelligence (AI) Strategy</h2>
+    <p>AI within Kohat Konnect functions strictly as an ambient productivity booster. Features include an AI Listing Companion (proposes titles and classes based on text) and an Ecosystem Feed Integrity Guardian to catch duplicates and abuse.</p>
+
+    <h2 class="chapter-heading">Chapter 8. Security & Moderation</h2>
+    <p>Account identity vectors are bound directly to user carrier network identifiers via cryptographically signed dynamic SMS OTP matching channels. Deceptive text or duplicate postings are pulled into verification pipelines automatically.</p>
+
+    <h2 class="chapter-heading">Chapter 9. Release Framework & Metrics</h2>
+    <p>The immediate deployment milestone establishes a rock-solid, production-ready MVP focusing on speed and absolute data integrity for the people of Kohat.</p>
+
+</body>
+</html>
